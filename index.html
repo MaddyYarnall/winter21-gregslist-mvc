@@ -11,14 +11,14 @@
   <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
-  <title>gregslist-mvc</title>
+  <title>GregsList-mvc</title>
 </head>
 
 <body>
   <header>
-    <nav class="navbar navbar-dark navbar-expand bg-primary text-pink no-select justify-content-between px-4">
+    <nav class="navbar navbar-dark navbar-expand bg-primary no-select justify-content-between px-4">
       <a class="navbar-brand ms-3" href="#">
-        <span class="ms-2">gregslist-mvc</span>
+        <span class="ms-2">GregsList-mvc</span>
       </a>
       <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#new-listing">
         <i class="mdi mdi-plus text-dark"></i>
@@ -29,7 +29,7 @@
     <div class="row flex-grow-1">
       <div class="col-2 bg-secondary py-3">
         <h4 class="selectable p-2" onclick="app.carsController.drawCars()">Cars</h4>
-        <h4 class="selectable p-2">Houses</h4>
+        <h4 class="selectable p-2" onclick="app.housesController.drawHouses()">Houses</h4>
         <h4 class="selectable p-2">Jobs</h4>
       </div>
       <div class="col-10">
@@ -52,6 +52,22 @@
               </div>
             </div>
           </div> -->
+          <!-- <div class="col-md-4 p-4">
+            <div class="bg-white shadow rounded">
+              <img class="w-100 rounded-top" src="//placehold.it/200x200" alt="house">
+              <div class="p-3">
+                <p class="text-center"><b>BEDS - BATHS - SQFT</b></p>
+                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum explicabo commodi
+                  minus.</p>
+              </div>
+              <div class="p-3 d-flex justify-content-between align-items-center">
+                <p class="m-0">$10000</p>
+                <i class="mdi mdi-delete"></i>
+              </div>
+            </div>
+          </div> -->
+
+          </div>
         </div>
       </div>
     </div>
