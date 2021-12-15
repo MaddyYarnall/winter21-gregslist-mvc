@@ -1,8 +1,8 @@
 import { Car } from "./Models/Car.js"
 import { House } from "./Models/House.js"
+import { Job } from "./Models/Job.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
-
 class AppState extends EventEmitter {
   /** @type {import('./Models/Car').Car[]} */
 
@@ -25,6 +25,12 @@ class AppState extends EventEmitter {
     new House({beds: '3 BEDS', baths: '2.5 BATHS', sqft: '3160 SQFT', price: 421800, address: '25603 N Neopolean Ct.', imgUrl:'https://beautifuldreamhomeplans.com/jpegs/Mediterranean%20revival%20home%20plan.jpg'})
   ]
   
+  /** @type {import('./Models/Job').Job[]} */
+jobs = [
+  new Job({jobTitle: 'Neurosurgeon', business: 'St.Lukes Hospital', pay: '$190/hr', description: 'Experienced neurosurgeon needed', imgUrl:'https://www.brainandspineni.com/wp-content/uploads/neurosurgeon-2110.jpg'}),
+
+]
+
 }
 
 export const ProxyState = new Proxy(new AppState(), {
