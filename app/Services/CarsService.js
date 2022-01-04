@@ -29,7 +29,7 @@ class CarsService {
   //NOTE The ProxyState.cars = [new car (res.data)] makes it so that any new car you create will get sent to the top of the page not the bottom
 
 async editCar(carData, id){
-  const res = await api.put(`cars/${id}`)
+  const res = await api.put(`cars/${id}`, carData)
 
   //NOTE This is finding the index of the car we just edited
 
