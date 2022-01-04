@@ -13,6 +13,7 @@ function _drawHouses() {
 export class HousesController {
 constructor(){
   ProxyState.on('houses',  _drawHouses)
+  housesService.getAllHouses()
 }
 
 drawHouses() {
