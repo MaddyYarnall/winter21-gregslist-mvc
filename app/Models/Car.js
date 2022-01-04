@@ -1,8 +1,7 @@
-import { generateId } from "../Utils/generateId.js"
 
 export class Car {
   constructor(data) {
-    this.id = generateId()
+    this.id = data.id
     this.make = data.make
     this.model = data.model
     this.year = data.year
@@ -11,6 +10,8 @@ export class Car {
     this.color = data.color
     this.imgUrl = data.imgUrl
   }
+
+  //NOTE ID's are already created in the server, so we don't need our generateId() function to generate one for us
 
   get Template() {
     return `
@@ -28,6 +29,7 @@ export class Car {
             <div class="color-box border border-dark" style="background-color: ${this.color};"></div>
           </div>
           <i class="mdi mdi-delete selectable" onclick="app.carsController.removeCar('${this.id}')"></i>
+          <i class="mdi mdi-pencil selectable" onclick="app.carsController.editCar('${this.id}')"></i>
         </div>
       </div>
     </div>`

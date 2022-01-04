@@ -12,6 +12,7 @@ function _drawCars() {
 export class CarsController {
   constructor() {
     ProxyState.on('cars', _drawCars)
+    carsService.getAllCars()
   }
   drawCars() {
     _drawCars()
@@ -20,6 +21,7 @@ export class CarsController {
 
   createCar() {
     // prevents page reload
+    try{
     window.event.preventDefault()
     console.log("submitted")
     /** @type {HTMLFormElement} */
@@ -40,10 +42,35 @@ export class CarsController {
     // close modal
     // @ts-ignore
     bootstrap.Modal.getOrCreateInstance(document.getElementById('new-listing')).hide()
+  }catch(error){
+  window.alert(error.message)
   }
+  }
+
+  //NOTE If the above "try" fails, this will catch the error and then we can display said error to the user and to the console
+
+  //NOTE You will always write your try catch in the controller since the controller is what "interacts" with the user, and if it fails, it will send a message to the user letting them know it failed
 
   removeCar(id) {
     console.log('deleting', id)
     carsService.removeCar(id)
   }
+
+ async editCar(id){
+   try{
+
+     //NOTE Find the car that we are going to edit locally first
+     let foundCar = ProxyState.cars.find(c => c.id == id)
+
+     //NOTE Grab modal that exists in HTML, and toggle it
+
+     // @ts-ignore
+     bootstrap.Modal.getOrCreateInstance(document.getElementById('new-listing')).toggle()
+     document.getElementById('modal-body-slot').innerHTML = getCarform(foundCar)
+
+   } catch (error){
+     window.alert(error.message)
+   }
+ }
+
 }
