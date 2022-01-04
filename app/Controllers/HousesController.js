@@ -52,6 +52,7 @@ async createHouse(id) {
 async editHouse(id){
 try{
   let foundHouse = ProxyState.houses.find(h => h.id == id)
+  
   // @ts-ignore
   bootstrap.Modal.getOrCreateInstance(document.getElementById('new-listing')).toggle()
      document.getElementById('modal-body-slot').innerHTML = getHouseform(foundHouse)
