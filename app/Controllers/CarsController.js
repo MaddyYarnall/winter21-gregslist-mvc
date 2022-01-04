@@ -69,7 +69,7 @@ export class CarsController {
      document.getElementById('modal-body-slot').innerHTML = getCarform(foundCar)
 
    } catch (error){
-     window.alert(error.message)
+     window.alert()
    }
  }
 

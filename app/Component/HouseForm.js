@@ -1,6 +1,6 @@
-export function getHouseform() {
+export function getHouseform(houseData = {}) {
   return `
-  <form onsubmit="app.houseController.createHouse()">
+  <form onsubmit="app.housesController.createHouse()">
   <div class="mb-3 d-flex justify-content-between">
     <div>
       <label for="beds" class="form-label">Beds</label>

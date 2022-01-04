@@ -21,7 +21,7 @@ drawHouses() {
   document.getElementById('modal-body-slot').innerHTML = getHouseform()
 }
 
-async createHouse() {
+async createHouse(id) {
   try{
   // prevents page reload
   window.event.preventDefault()
@@ -30,14 +30,14 @@ async createHouse() {
   // @ts-ignore
   const form = window.event.target
   const houseData = {
-    beds: form.beds.value,
-    baths: form.baths.value,
-    sqft: form.sqft.value,
+    bedrooms: form.beds.value,
+    bathrooms: form.baths.value,
+    year: form.year.value,
     price: form.price.value,
-    address: form.address.value,
+    levels: form.levels.value,
     imgUrl: form.imgUrl.value
   }
-  housesService.createHouse(houseData)
+  await housesService.createHouse(houseData)
   // clear form
   form.reset()
   // close modal
@@ -46,6 +46,24 @@ async createHouse() {
 }catch(error){
   window.alert(error.message)
 }
+}
+
+async editHouse(id){
+try{
+  let foundHouse = ProxyState.houses.find(h => h.id == id)
+  // @ts-ignore
+  bootstrap.Modal.getOrCreateInstance(document.getElementById('new-listing')).toggle()
+     document.getElementById('modal-body-slot').innerHTML = getHouseform(foundHouse)
+
+
+}catch (error){
+  window.alert()
+}
+}
+
+removeHouse(id) {
+  console.log('deleting', id)
+  housesService.removeHouse(id)
 }
 
 
