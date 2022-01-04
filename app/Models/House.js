@@ -21,8 +21,8 @@ export class House {
       </div>
       <div class="p-3 d-flex justify-content-between align-items-center">
         <p class="m-0">$${this.price}</p>
-        <i class="mdi mdi-delete selectable" onclick="app.HousesController.removeHouse"></i>
-        <i class="mdi mdi-pencil selectable" onclick="app.HousesController.editHouse"></i>
+        <i class="mdi mdi-delete selectable" onclick="app.housesController.removeHouse('${this.id}')"></i>
+        <i class="mdi mdi-pencil selectable" onclick="app.housesController.editHouse('${this.id}')"></i>
       </div>
     </div>
   </div>`

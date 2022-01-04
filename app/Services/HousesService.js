@@ -9,7 +9,7 @@ class HousesService {
   }
 
   async removeHouse(id) {
-    const res = await api.delete('houses/${id}')
+    const res = await api.delete(`houses/${id}`)
     console.log('delete house res', res)
     ProxyState.houses = ProxyState.houses.filter(h => h.id !== id)
     console.log('delete house res', res)

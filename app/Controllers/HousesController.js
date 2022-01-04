@@ -35,7 +35,8 @@ async createHouse(id) {
     year: form.year.value,
     price: form.price.value,
     levels: form.levels.value,
-    imgUrl: form.imgUrl.value
+    imgUrl: form.imgUrl.value,
+    description: form.description.value
   }
   await housesService.createHouse(houseData)
   // clear form
