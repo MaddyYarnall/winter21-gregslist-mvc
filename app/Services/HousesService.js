@@ -6,14 +6,16 @@ class HousesService {
   async removeHouse(id) {
     const res = await api.delete('cars/${id}')
     ProxyState.houses = ProxyState.houses.filter(h => h.id !== id)
-    console.log('delete car res', res)
+    console.log('delete house res', res)
     
   }
-  createHouse(houseData) {
-    const house = new House(houseData)
-    
-    ProxyState.houses = [...ProxyState.houses, house]
+  async createHouse(houseData) {
+    const res = await api.post('houses', houseData)
+    console.log('post house res', res.data)
+    ProxyState.houses = [new House(res.data), ...ProxyState.houses]
   }
+
+
 
 async getAllHouses(){
   const res = await api.get('houses')

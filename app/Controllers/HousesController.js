@@ -21,7 +21,8 @@ drawHouses() {
   document.getElementById('modal-body-slot').innerHTML = getHouseform()
 }
 
-createHouse() {
+async createHouse() {
+  try{
   // prevents page reload
   window.event.preventDefault()
   console.log("submitted")
@@ -42,6 +43,9 @@ createHouse() {
   // close modal
   // @ts-ignore
   bootstrap.Modal.getOrCreateInstance(document.getElementById('new-listing')).hide()
+}catch(error){
+  window.alert(error.message)
+}
 }
 
 
