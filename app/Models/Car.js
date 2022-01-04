@@ -1,14 +1,14 @@
 
 export class Car {
   constructor(data) {
-    this.id = data.id
-    this.make = data.make
-    this.model = data.model
-    this.year = data.year
-    this.price = data.price
-    this.description = data.description
+    this.id = data.id || ''
+    this.make = data.make || ''
+    this.model = data.model || ''
+    this.year = data.year || ''
+    this.price = data.price || ''
+    this.description = data.description || ''
     this.color = data.color
-    this.imgUrl = data.imgUrl
+    this.imgUrl = data.imgUrl || ''
   }
 
   //NOTE ID's are already created in the server, so we don't need our generateId() function to generate one for us
