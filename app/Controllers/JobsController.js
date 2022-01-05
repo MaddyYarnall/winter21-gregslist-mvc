@@ -15,6 +15,7 @@ function _drawJobs() {
 export class JobsController {
   constructor(){
     ProxyState.on('jobs',  _drawJobs)
+    jobsService.getAllJobs()
   }
   
   drawHouses() {
@@ -23,6 +24,7 @@ export class JobsController {
   }
   
   createJob() {
+    try{
     // prevents page reload
     window.event.preventDefault()
     console.log("submitted")
@@ -42,6 +44,9 @@ export class JobsController {
     // close modal
     // @ts-ignore
     bootstrap.Modal.getOrCreateInstance(document.getElementById('new-listing')).hide()
+  }catch(error){
+    window.alert(error.message)
+  }
   }
   
   

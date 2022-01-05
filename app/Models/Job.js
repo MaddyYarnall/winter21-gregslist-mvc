@@ -1,9 +1,8 @@
-import { generateId } from "../Utils/generateId.js";
 
 
 export class Job {
 constructor(data){
-  this.id = generateId()
+  this.id = data.id;
   this.jobTitle = data.jobTitle;
   this.business = data.business;
   this.pay = data.pay;
